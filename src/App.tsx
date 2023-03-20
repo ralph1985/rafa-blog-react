@@ -1,16 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import List from './components/List';
-
-interface Job {
-  id: string;
-  name: string;
-  logoDescription: string;
-  startDate: string;
-  endDate?: string;
-  logo: string;
-  shortDescription: string;
-}
+import { Job } from './types.d';
 
 interface AppState {
   jobs: Array<Job>;

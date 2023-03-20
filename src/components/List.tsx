@@ -1,13 +1,7 @@
+import { Job } from '../types.d';
+
 interface Props {
-  jobs: Array<{
-    id: string;
-    name: string;
-    logoDescription: string;
-    startDate: string;
-    endDate?: string;
-    logo: string;
-    shortDescription: string;
-  }>;
+  jobs: Array<Job>;
 }
 
 export default function List({ jobs }: Props) {
