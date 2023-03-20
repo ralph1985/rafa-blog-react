@@ -7,7 +7,7 @@ interface AppState {
   jobs: Array<Job>;
 }
 
-const initialState = [
+const INITIAL_STATE = [
   {
     id: 'mo2o',
     name: 'Mobile One2One',
@@ -33,7 +33,7 @@ function App() {
   const [jobs, setJobs] = useState<AppState['jobs']>([]);
 
   useEffect(() => {
-    setJobs(initialState);
+    setJobs(INITIAL_STATE);
   }, []);
 
   return (
