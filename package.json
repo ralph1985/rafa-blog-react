@@ -30,7 +30,8 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
     "husky": "^8.0.0",
-    "sass": "^1.59.3"
+    "sass": "^1.59.3",
+    "stylelint": "^15.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,6 +46,12 @@
       "pre-push": "yarn test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "lint-staged": {
+    "*.scss": [
+      "stylelint --fix --allow-empty-input --ignore-path .eslintignore",
+      "git add"
+    ]
   },
   "eslintConfig": {
     "extends": [
