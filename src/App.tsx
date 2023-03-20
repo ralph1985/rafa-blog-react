@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import List from './components/List';
 
 interface Job {
   id: string;
@@ -9,6 +10,10 @@ interface Job {
   endDate?: string;
   logo: string;
   shortDescription: string;
+}
+
+interface AppState {
+  jobs: Array<Job>;
 }
 
 const initialState = [
@@ -34,7 +39,7 @@ const initialState = [
 ];
 
 function App() {
-  const [jobs, setJobs] = useState<Array<Job>>([]);
+  const [jobs, setJobs] = useState<AppState['jobs']>([]);
 
   useEffect(() => {
     setJobs(initialState);
@@ -43,15 +48,7 @@ function App() {
   return (
     <div className="App">
       <h1>Jobs</h1>
-      <ul>
-        {jobs.map(({ id, name, logo, logoDescription, shortDescription }) => (
-          <li key={id} data-id={id}>
-            <h2>{name}</h2>
-            <img src={logo} alt={logoDescription} width="100" />
-            <p>{shortDescription}</p>
-          </li>
-        ))}
-      </ul>
+      <List jobs={jobs} />
     </div>
   );
 }
